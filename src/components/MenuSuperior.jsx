@@ -15,14 +15,14 @@ const MenuSuperior = () => {
         <Link to="/" className="navbar-brand">Controle de Automóveis</Link>
         <ul className="navbar-nav">
           <li className="nav-item">
-            <Link to="/" className="nav-link">Incluir Automóvel</Link>
+            <Link to="/automoveis" className="nav-link">Incluir Automóvel</Link>
           </li>
           
           <li className="nav-item">
             <Link to="/manutencao" className="nav-link">Manutenção de Automóveis</Link>
           </li>
           <li className="nav-item">
-            <Link to="/funcionario" className="nav-link">Cadastrar Automóveis</Link>
+            <Link to="/funcionario" className="nav-link">Cadastrar Funcionário</Link>
           </li>
           
         </ul>

@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { api } from "../config_axios";
 import { useState } from "react";
 
-const cadastrar_funcionario = () => {
+const Cadastrar_Funcionario = () => {
   const { register, handleSubmit,reset } = useForm();
   const [aviso, setAviso] = useState("");
 
@@ -103,4 +103,4 @@ const cadastrar_funcionario = () => {
   );
 };
 
-export default cadastrar_funcionario;
+export default Cadastrar_Funcionario;

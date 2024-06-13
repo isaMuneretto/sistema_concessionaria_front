@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { api } from "../config_axios";
 import ItemLista from "./ItemLista";  
 
-const ManutencaoAutomoveis = () => {
+const Manutencao_Automoveis = () => {
     //servem para manipular os dados do formulário
     const {register, handleSubmit, reset} = useForm();
     //guardar e setar as informações do objeto
@@ -47,7 +47,7 @@ const excluir = async(id,titulo) => {
         console.log("id é:"+id)
         await api.delete(`automoveis/${id}`);
         //formar uma nova lista de automóveis sem o automóvel que foi excluido
-        setAutomoveist(automoveis.filter(automoveis => automoveis.id !== id));
+        setAutomoveis(automoveis.filter(automoveis => automoveis.id !== id));
 
     }catch(error){
         alert(`Erro: ..Não foi possível excluir o automóvel ${titulo}: ${error}`);
@@ -55,25 +55,25 @@ const excluir = async(id,titulo) => {
 }
 
 //alterar os registros
-const alterar = async (id,titulo,index) => {
-    const novoStatus = prompt(`Digite o novo status da tarefa ${titulo}`);
-    if (novoStatus == "" ) {
-        alert('Digite um status válido!(status em branco)')
+const alterar = async (id,nome) => {
+    const novoNome = prompt(`Digite o novo nome do automóvel ${nome}`);
+    if (novoNome == "" ) {
+        alert('Digite um nome válido!(nome em branco)')
         return;
     }
     try{//captura os erros 
         //chamando o backend e passando os dados
-        await api.put(`tarefas/${id}`,{status: novoStatus});
+        await api.put(`automoveis/${id}`,{nome: novoNome});
         
-        const TarefasAtualizadas = [...tarefas];
-        const indiceTarefas = TarefasAtualizadas.find(tarefas => tarefas.id === id);
-        console.log("indice tarefa:"+indiceTarefas);
-        TarefasAtualizadas[indiceTarefas.id].status = novoStatus;
-        setTarefas(TarefasAtualizadas);
+        const AutomoveisAtualizados = [...automoveis];
+        const indiceAutomoveis = AutomoveisAtualizados.find(automoveis => automoveis.id === id);
+        console.log("indice automovel:"+indiceAutomoveis);
+        AutomoveisAtualizados[indiceAutomoveis.id].nome = novoNome;
+        setAutomoveis(AutomoveisAtualizados);
         obterLista();
     
     }catch(error){
-        alert(`Erro: ..Não foi possível alterar a tarefa ${titulo}: ${error}`);
+        alert(`Erro: ..Não foi possível alterar o automóvel ${nome}: ${error}`);
     }
 }
 
@@ -81,12 +81,12 @@ const alterar = async (id,titulo,index) => {
        <div className="container">
         <div className="row">
             <div className="col-sm-7">
-                <h4 className="fst-italic mt-3">Manutenção de Tarefas</h4>
+                <h4 className="fst-italic mt-3">Manutenção de Automóveis</h4>
             </div>
             <div className="col-sm-5">
                 <form onSubmit={handleSubmit(filtrarLista)}>
                     <div className="input-group mt-3">
-                        <input type="text" className="form-control" placeholder="Titulo" required {...register("palavra")} />
+                        <input type="text" className="form-control" placeholder="Nome" required {...register("palavra")} />
                         <input type="submit" className="btn btn-primary" value="Pesquisar" />
                         <input type="button" className="btn btn-danger" value="Todos" onClick={()=>{reset({palavra:""});obterLista();}}/>
                     </div>
@@ -119,4 +119,4 @@ const alterar = async (id,titulo,index) => {
     );
 };
 
-export default ManutencaoAutomoveis;
+export default Manutencao_Automoveis;

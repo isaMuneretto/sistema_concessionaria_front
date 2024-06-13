@@ -3,9 +3,9 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Home from './components/home';
 import Register from './components/register';
-import cadastrar_automoveis from './components/cadastrar_automoveis';
-import manutencao_automoveis from './components/manutencao_automoveis';
-import cadastrar_funcionario from './components/cadastrar_funcionario';
+import Cadastrar_Automovel from './components/cadastrar_automovel';
+import Manutencao_Automoveis from './components/manutencao_automoveis';
+import Cadastrar_Funcionario from './components/cadastrar_funcionario';
 import PrivateRoute from './components/privateRoute';
 import FormularioLogin from './components/login';
 
@@ -18,9 +18,9 @@ const App = () => {
                 <Route exact path="/login" element={<FormularioLogin/>} />
                 <Route path="/home" element={<PrivateRoute><Home/></PrivateRoute>} />
                 <Route exact path="/register" element={<Register/>} />
-                <Route path="/automoveis" element={<cadastrar_automoveis />} />
-                <Route path="/manutencao" element={<manutencao_automoveis />} />
-                <Route path="/funcionario" element={<cadastrar_funcionario />} />
+                <Route path="/automoveis" element={<Cadastrar_Automovel />} />
+                <Route path="/manutencao" element={<Manutencao_Automoveis />} />
+                <Route path="/funcionario" element={<Cadastrar_Funcionario />} />
             </Routes>
         </Router>
     );

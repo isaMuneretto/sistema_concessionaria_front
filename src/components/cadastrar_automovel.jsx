@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { api } from "../config_axios";
 import { useState } from "react";
 
-const cadastrar_automovel = () => {
+const Cadastrar_Automovel = () => {
   const { register, handleSubmit, reset} = useForm();
   const [aviso, setAviso] = useState("");
 
@@ -49,4 +49,4 @@ const cadastrar_automovel = () => {
   );
 };
 
-export default cadastrar_automovel;
+export default Cadastrar_Automovel;
