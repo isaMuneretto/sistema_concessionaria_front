@@ -26,6 +26,7 @@ const MenuSuperior = () => {
           </li>
           
         </ul>
+        <a class="btn btn-light" href="/login" role="button">Sair</a>
       </div>
     </nav>
   );

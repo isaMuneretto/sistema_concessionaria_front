@@ -23,6 +23,8 @@ const FormularioLogin = () => {
 
         if (response.ok) {
             localStorage.setItem('token', data.token); // Armazenando o token
+            localStorage.setItem('nome', data.nome);
+            console.log(data.nome)
             navigate('/home');  // Redireciona para /home
         } else {
             alert('Falha no login!');

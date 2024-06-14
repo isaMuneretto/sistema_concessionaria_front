@@ -32,6 +32,17 @@ const Cadastrar_Automovel = () => {
               {...register("nome")}
             />
           </div>
+          <div className="form-group">
+            <label htmlFor="concessionarias_codigo">Concessionária Id</label>
+            <input
+              type="text"
+              className="form-control"
+              id="concessionarias_codigo"
+              required
+              autoFocus
+              {...register("concessionarias_codigo")}
+            />
+          </div>
           <input
             type="submit"
             className="btn btn-primary mt-3"

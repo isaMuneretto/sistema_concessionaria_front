@@ -17,7 +17,7 @@ const Cadastrar_Funcionario = () => {
   };
 
   return (
-    <div className="container-fluid bg-dark text-light min-vh-100 d-flex align-items-center">
+    <div className="container-fluid bg-dark text-light min-vh-100 d-flex justify-content-center align-items-center">
       <div className="container p-5 bg-light text-dark rounded">
         <h4 className="fst-italic mb-3">Cadastrar Funcionário</h4>
         <form onSubmit={handleSubmit(salvar)}>
@@ -55,14 +55,14 @@ const Cadastrar_Funcionario = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="dataNascimento">Data de Nascimento</label>
+            <label htmlFor="data_nascimento">Data de Nascimento</label>
             <input
               type="text"
               className="form-control"
-              id="dataNascimento"
+              id="data_nascimento"
               required
               autoFocus
-              {...register("dataNascimento")}
+              {...register("data_nascimento")}
             />
           </div>
           <div className="form-group mt-2">

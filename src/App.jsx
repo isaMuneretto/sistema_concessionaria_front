@@ -8,6 +8,7 @@ import Manutencao_Automoveis from './components/manutencao_automoveis';
 import Cadastrar_Funcionario from './components/cadastrar_funcionario';
 import PrivateRoute from './components/privateRoute';
 import FormularioLogin from './components/login';
+import MenuSuperior from './components/MenuSuperior';
 
 const App = () => {
 
@@ -18,9 +19,9 @@ const App = () => {
                 <Route exact path="/login" element={<FormularioLogin/>} />
                 <Route path="/home" element={<PrivateRoute><Home/></PrivateRoute>} />
                 <Route exact path="/register" element={<Register/>} />
-                <Route path="/automoveis" element={<Cadastrar_Automovel />} />
-                <Route path="/manutencao" element={<Manutencao_Automoveis />} />
-                <Route path="/funcionario" element={<Cadastrar_Funcionario />} />
+                <Route path="/automoveis" element={ <> <MenuSuperior /><Cadastrar_Automovel /> </>} />
+                <Route path="/manutencao" element={<> <MenuSuperior /><Manutencao_Automoveis /></>} />
+                <Route path="/funcionario" element={<> <MenuSuperior /><Cadastrar_Funcionario /></>} />
             </Routes>
         </Router>
     );

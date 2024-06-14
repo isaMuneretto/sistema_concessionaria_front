@@ -2,6 +2,7 @@ import {useForm} from "react-hook-form";
 import { useState, useEffect } from "react";
 import { api } from "../config_axios";
 import ItemLista from "./ItemLista";  
+import MenuSuperior from "./MenuSuperior";
 
 const Manutencao_Automoveis = () => {
     //servem para manipular os dados do formulário
@@ -78,6 +79,9 @@ const alterar = async (id,nome) => {
 }
 
     return (
+        
+
+        
        <div className="container">
         <div className="row">
             <div className="col-sm-7">
@@ -115,7 +119,7 @@ const alterar = async (id,nome) => {
             </tbody>
         </table>
 
-       </div> 
+       </div>
     );
 };
 
