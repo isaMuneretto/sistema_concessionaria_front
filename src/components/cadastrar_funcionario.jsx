@@ -1,10 +1,24 @@
 import { useForm } from "react-hook-form";
 import { api } from "../config_axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Cadastrar_Funcionario = () => {
   const { register, handleSubmit,reset } = useForm();
   const [aviso, setAviso] = useState("");
+  const [concessionarias, setConcessionarias] = useState([]);
+
+  useEffect(() => {
+    const fetchConcessionarias = async () => {
+      try {
+        const response = await api.get("/concessionarias"); // Replace with your API endpoint
+        setConcessionarias(response.data.concessionarias);
+        console.log(response.data.concessionarias);
+      } catch (error) {
+        console.error("Erro ao buscar concessionarias:", error);
+      }
+    };
+    fetchConcessionarias();
+  }, []);
 
   const salvar = async (campos) => {
     try {
@@ -85,7 +99,27 @@ const Cadastrar_Funcionario = () => {
               {...register("senha")}
             />
           </div>
-                   
+
+          {concessionarias.length > 0 && ( // Conditionally render dropdown
+            <div className="form-group mt-2">
+              <label htmlFor="concessionarias_id">Concessionária:</label>
+              <select
+                className="form-control"
+                id="concessionarias_id"
+                required
+                {...register("concessionarias_id")}
+              >
+                <option value="">Selecione uma concessionária</option>
+                {concessionarias.map((concessionaria) => (
+                  <option key={concessionaria.id} value={concessionaria.id}>
+                    {concessionaria.nome}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
+
+
           <input
             type="submit"
             className="btn btn-primary mt-3"

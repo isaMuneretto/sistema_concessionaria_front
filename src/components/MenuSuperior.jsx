@@ -1,8 +1,18 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const MenuSuperior = () => {
+  const [nome, setNome] = useState(''); // State to store the retrieved name
+
+  useEffect(() => {
+    const storedNome = localStorage.getItem('nome'); // Get the name from localStorage
+    if (storedNome) {
+      setNome(storedNome); // Update the state with the retrieved name
+    }
+  }, []); // Run only once on component mount
+
   const menuStyle = {
     width: '100%', // Ocupar toda a largura
     position: 'fixed', // Posição fixa

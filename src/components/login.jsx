@@ -23,7 +23,9 @@ const FormularioLogin = () => {
 
         if (response.ok) {
             localStorage.setItem('token', data.token); // Armazenando o token
-            localStorage.setItem('nome', data.nome);
+            localStorage.setItem('nome', data.user.nome);
+            localStorage.setItem('id', data.user.id);
+            localStorage.setItem('concessionarias_id', data.user.concessionarias_id);
             console.log(data.nome)
             navigate('/home');  // Redireciona para /home
         } else {
