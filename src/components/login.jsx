@@ -26,7 +26,7 @@ const FormularioLogin = () => {
             localStorage.setItem('nome', data.user.nome);
             localStorage.setItem('id', data.user.id);
             localStorage.setItem('concessionarias_id', data.user.concessionarias_id);
-            console.log(data.nome)
+            console.log(data.user.nome)
             navigate('/home');  // Redireciona para /home
         } else {
             alert('Falha no login!');
@@ -60,7 +60,7 @@ const FormularioLogin = () => {
                     <input type="senha" id="senha" name="senha" value={senha} onChange={(e) => setSenha(e.target.value)} />
                     <button type="submit">Entrar</button>
                 </form>
-                <p>Ainda não tem conta? <Link to="/register">Registre-se</Link></p>
+            
             </div>
         </div>
     );

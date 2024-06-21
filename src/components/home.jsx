@@ -7,10 +7,12 @@ const Home = () => {
   return (
     <div>
       <MenuSuperior />
-      <div className="text-center mt-5">
+      <div className="d-flex justify-content-center align-items-center vh-100">
+      <div className="text-center mt-5 ">
         <h1>Página inicial</h1>
         <p>Você está logado!</p>
       </div>
+    </div>
     </div>
   );
 };

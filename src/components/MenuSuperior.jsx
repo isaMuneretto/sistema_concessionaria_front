@@ -22,7 +22,7 @@ const MenuSuperior = () => {
   return (
     <nav style={menuStyle} className="navbar navbar-expand-sm bg-primary navbar-dark sticky-top">
       <div className="container">
-        <Link to="/" className="navbar-brand">Controle de Automóveis</Link>
+        <Link to="/" className="navbar-brand">{nome}</Link>
         <ul className="navbar-nav">
           <li className="nav-item">
             <Link to="/automoveis" className="nav-link">Incluir Automóvel</Link>

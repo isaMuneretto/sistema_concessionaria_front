@@ -32,7 +32,7 @@ const filtrarLista = async (campos) => {
         const lista = await api.get(`automoveis/filtro/${campos.palavra}`);
         
         lista.data.length
-            ? setAutomoveis(lista.data)  // Correção aqui
+            ? setAutomoveis(lista.data) 
             : alert("Não há automóveis cadastrados com a palavra chave pesquisada");
     } catch (error) {
         alert(`Erro: ..Não foi possível obter os dados: ${error}`);

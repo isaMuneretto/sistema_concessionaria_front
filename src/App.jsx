@@ -2,7 +2,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Home from './components/home';
-import Register from './components/register';
 import Cadastrar_Automovel from './components/cadastrar_automovel';
 import Manutencao_Automoveis from './components/manutencao_automoveis';
 import Cadastrar_Funcionario from './components/cadastrar_funcionario';
@@ -18,7 +17,6 @@ const App = () => {
                 <Route path="/" element={<Navigate replace to="/login" /> } />
                 <Route exact path="/login" element={<FormularioLogin/>} />
                 <Route path="/home" element={<PrivateRoute><Home/></PrivateRoute>} />
-                <Route exact path="/register" element={<Register/>} />
                 <Route path="/automoveis" element={ <> <MenuSuperior /><Cadastrar_Automovel /> </>} />
                 <Route path="/manutencao" element={<> <MenuSuperior /><Manutencao_Automoveis /></>} />
                 <Route path="/funcionario" element={<> <MenuSuperior /><Cadastrar_Funcionario /></>} />
