@@ -2,17 +2,18 @@ import {useForm} from "react-hook-form";
 import { useState, useEffect } from "react";
 import { api } from "../config_axios";
 import ItemLista from "./ItemLista";  
-import MenuSuperior from "./MenuSuperior";
+
 
 const Manutencao_Automoveis = () => {
     //servem para manipular os dados do formulário
     const {register, handleSubmit, reset} = useForm();
     //guardar e setar as informações do objeto
     const [automoveis, setAutomoveis] = useState([]);
+    const [id, setId] = useState(''); 
 
     const obterLista = async () => {
         try {
-            const lista = await api.get("automoveis");
+            const lista = await api.get(`automoveis/${localStorage.getItem('concessionarias_id')}`);
             setAutomoveis(lista.data.automoveis);
             console.log(lista)
             
@@ -25,6 +26,9 @@ const Manutencao_Automoveis = () => {
 // for renderizado
 useEffect(() => {
     obterLista();
+    const storedId = localStorage.getItem('concessionarias_id'); // Get the name from localStorage
+    console.log(storedId);
+    setId(storedId);
 },[]);
 
 const filtrarLista = async (campos) => {
@@ -78,10 +82,7 @@ const alterar = async (id,nome) => {
     }
 }
 
-    return (
-        
-
-        
+    return (  
        <div className="container">
         <div className="row">
             <div className="col-sm-7">

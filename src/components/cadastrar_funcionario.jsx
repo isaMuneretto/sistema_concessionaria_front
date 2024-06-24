@@ -71,7 +71,7 @@ const Cadastrar_Funcionario = () => {
             <div className="form-group">
               <label htmlFor="data_nascimento">Data de Nascimento</label>
               <input
-                type="text"
+                type="date"
                 className="form-control"
                 id="data_nascimento"
                 required
@@ -100,7 +100,7 @@ const Cadastrar_Funcionario = () => {
               />
             </div>
 
-            {concessionarias.length > 0 && ( // Conditionally render dropdown
+            {concessionarias.length > 0 && ( 
               <div className="form-group mt-2">
                 <label htmlFor="concessionarias_id">Concessionária:</label>
                 <select

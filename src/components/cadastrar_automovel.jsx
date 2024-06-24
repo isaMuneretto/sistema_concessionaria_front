@@ -1,10 +1,19 @@
 import { useForm } from "react-hook-form";
 import { api } from "../config_axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Cadastrar_Automovel = () => {
   const { register, handleSubmit, reset} = useForm();
   const [aviso, setAviso] = useState("");
+  const [concessionarias_id, setConcessionarias_id] = useState(''); 
+
+useEffect(() => {
+    const storedId = localStorage.getItem('concessionarias_id'); // Get the name from localStorage
+    console.log(storedId);
+    if (storedId) {
+      setConcessionarias_id(storedId); // Update the state with the retrieved name
+    }
+  }, []); 
 
   const salvar = async (campos) => {
     try {
@@ -33,14 +42,15 @@ const Cadastrar_Automovel = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="concessionarias_codigo">Concessionária Id</label>
+            <label htmlFor="concessionarias_id">Concessionária Id</label>
             <input
-              type="text"
+              type="number"
               className="form-control"
-              id="concessionarias_codigo"
+              id="concessionarias_id"
+              value = {concessionarias_id}
               required
               autoFocus
-              {...register("concessionarias_codigo")}
+              {...register("concessionarias_id")}
             />
           </div>
           <input
